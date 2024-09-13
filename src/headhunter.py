@@ -108,7 +108,7 @@ class HHApi(Parser):
         self.params = {'text': '', 'employer_id': '', 'page': 0, 'per_page': 100, 'only_with_salary': 'true'}
         self.vacancies = []
 
-    def load_vacancies(self, keyword: str = '', page_quantity: int = 2) -> None:  # page_quantity задаем от 0  до 20
+    def load_vacancies(self, keyword: str = '', page_quantity: int = 5) -> None:  # page_quantity задаем от 0  до 20
         '''загружает данные c АПИ'''
         self.params['text'] = keyword
         self.params['employer_id'] = self.employers_data
@@ -161,7 +161,12 @@ class VacanciesParser():
         return vacancies_list
 
 tt = HHApi()
-tt.load_vacancies('python')
+tt.load_vacancies()
 vac  =  tt.vacancies
+# print(vac)
+Vacancy_parser = VacanciesParser()
+test = Vacancy_parser.parser_api_vacancies(vac)
+for i in test:
+    print(i)
 
-print(*vac, sep='\n')
+# print(*vac, sep='\n')
