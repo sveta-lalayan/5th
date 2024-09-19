@@ -52,11 +52,13 @@ db_man = DBManager(conn)
 
 db_man.get_companies_and_vacancies_count()
 
+
 db_man.get_avg_salary()
 
 
+filter_word = input('введите слово для фильтрации: ')
 
+db_man.get_vacancies_with_keyword(filter_word)
 
-db_man.get_vacancies_with_keyword('менеджер')
 
 
